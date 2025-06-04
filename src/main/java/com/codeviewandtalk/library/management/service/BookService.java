@@ -16,6 +16,7 @@ public class BookService {
     }
 
     public List<Book> getBooksByAuthorName(String authorName) {
+        System.out.println("Author name: " + authorName);
         return bookRepository.findByAuthor_Name(authorName);
     }
 }
