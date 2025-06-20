@@ -3,10 +3,7 @@ package com.codeviewandtalk.library.management.controller;
 import com.codeviewandtalk.library.management.model.Book;
 import com.codeviewandtalk.library.management.service.BookService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,6 +17,11 @@ public class BookController {
         this.bookService = bookService;
     }
 
+    /**
+     * Retrieves a list of books by the author's name.
+     * @param authorName the name of the author
+     * @return ResponseEntity containing a list of books or a 204 No Content status if no books are found
+     */
     @GetMapping
     public ResponseEntity<List<Book>> getBooksByAuthorName(@RequestParam String authorName) {
         List<Book> books = bookService.getBooksByAuthorName(authorName);
@@ -27,5 +29,16 @@ public class BookController {
             return ResponseEntity.noContent().build();
         }
         return ResponseEntity.ok(books);
+    }
+
+    /**
+     * Retrieves a book by its ID.
+     * @param id the ID of the book
+     * @return ResponseEntity containing the book if found, or a 404 error if not found
+     */
+    @GetMapping("/{id}")
+    public ResponseEntity<Book> getBookById(@PathVariable Long id) {
+        Book book = bookService.getBookById(id);
+        return ResponseEntity.ok(book);
     }
 }
