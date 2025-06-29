@@ -20,3 +20,9 @@ Scenario: You need to create a REST API to fetch a list of books by a specific a
 Scenario: The library system needs to store book and author details in a relational database.
 
 **Question**: How would you configure Spring Boot to connect to a MySQL database? What annotations would you use to map the `Book` and `Author` entities?
+
+### 4. **Error Handling**
+
+Scenario: A user tries to fetch details of a book that does not exist in the database.
+
+**Question**: How would you handle this scenario gracefully and return an appropriate HTTP status code and error message?
