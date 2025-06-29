@@ -26,3 +26,12 @@ Scenario: The library system needs to store book and author details in a relatio
 Scenario: A user tries to fetch details of a book that does not exist in the database.
 
 **Question**: How would you handle this scenario gracefully and return an appropriate HTTP status code and error message?
+
+
+### 5. **Basic Spring Security**
+
+- Scenario: You need to secure the library management system so that only authenticated users can access the APIs.
+
+  **Question**: How would you implement authentication and authorization in your Spring Boot application? What configurations would you add to secure the endpoints?
+
+
