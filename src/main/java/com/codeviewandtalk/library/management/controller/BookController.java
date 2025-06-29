@@ -3,6 +3,7 @@ package com.codeviewandtalk.library.management.controller;
 import com.codeviewandtalk.library.management.model.Book;
 import com.codeviewandtalk.library.management.service.BookService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,7 +23,8 @@ public class BookController {
      * @param authorName the name of the author
      * @return ResponseEntity containing a list of books or a 204 No Content status if no books are found
      */
-    @GetMapping
+    @GetMapping("/by-author")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<List<Book>> getBooksByAuthorName(@RequestParam String authorName) {
         List<Book> books = bookService.getBooksByAuthorName(authorName);
         if (books.isEmpty()) {
@@ -37,6 +39,7 @@ public class BookController {
      * @return ResponseEntity containing the book if found, or a 404 error if not found
      */
     @GetMapping("/{id}")
+    @PreAuthorize("hasRole('ROLE_USER')")
     public ResponseEntity<Book> getBookById(@PathVariable Long id) {
         Book book = bookService.getBookById(id);
         return ResponseEntity.ok(book);
