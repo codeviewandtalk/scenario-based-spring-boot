@@ -39,6 +39,7 @@ public class SecurityConfig {
                 .csrf(csrf->csrf.disable())
                 .authorizeHttpRequests(auth->
                         auth.requestMatchers("/auth/**").permitAll()
+                                .requestMatchers("/health").permitAll()
                                 .requestMatchers("/api/books/by-author").hasAuthority("ADMIN")
                                 .requestMatchers("/api/books/**").hasAuthority("USER")
                                 .anyRequest().authenticated())
