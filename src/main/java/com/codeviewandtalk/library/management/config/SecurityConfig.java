@@ -40,6 +40,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth->
                         auth.requestMatchers("/auth/**").permitAll()
                                 .requestMatchers("/health").permitAll()
+                                .requestMatchers("/api/cache/**").permitAll()
                                 .requestMatchers("/api/books/by-author").hasAuthority("ADMIN")
                                 .requestMatchers("/api/books/**").hasAuthority("USER")
                                 .anyRequest().authenticated())

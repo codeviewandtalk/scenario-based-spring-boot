@@ -3,6 +3,7 @@ package com.codeviewandtalk.library.management.service;
 import com.codeviewandtalk.library.management.exception.BookNotFoundException;
 import com.codeviewandtalk.library.management.model.Book;
 import com.codeviewandtalk.library.management.repository.BookRepository;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,7 +22,9 @@ public class BookService {
      * @param authorName
      * @return
      */
+    @Cacheable(value = "booksByAuthor", key = "#authorName")
     public List<Book> getBooksByAuthorName(String authorName) {
+        System.out.println("Fetching books from database " + authorName);
         return bookRepository.findByAuthor_Name(authorName);
     }
 
