@@ -24,7 +24,7 @@ public class BookController {
      * @return ResponseEntity containing a list of books or a 204 No Content status if no books are found
      */
     @GetMapping("/by-author")
-    @PreAuthorize("hasAuthority('ADMIN')")
+  //  @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<List<Book>> getBooksByAuthorName(@RequestParam String authorName) {
         List<Book> books = bookService.getBooksByAuthorName(authorName);
         if (books.isEmpty()) {

@@ -40,8 +40,9 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth->
                         auth.requestMatchers("/auth/**").permitAll()
                                 .requestMatchers("/health").permitAll()
-                                .requestMatchers("/api/books/by-author").hasAuthority("ADMIN")
-                                .requestMatchers("/api/books/**").hasAuthority("USER")
+                                .requestMatchers("/api/cache/**").permitAll()
+                                .requestMatchers("/api/books/by-author").permitAll()
+                                .requestMatchers("/api/books/**").permitAll()
                                 .anyRequest().authenticated())
                 .sessionManagement(session->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
