@@ -42,7 +42,7 @@ public class SecurityConfig {
                                 .requestMatchers("/health").permitAll()
                                 .requestMatchers("/api/cache/**").permitAll()
                                 .requestMatchers("/api/books/by-author").permitAll()
-                                .requestMatchers("/api/books/**").hasAuthority("USER")
+                                .requestMatchers("/api/books/**").permitAll()
                                 .anyRequest().authenticated())
                 .sessionManagement(session->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
