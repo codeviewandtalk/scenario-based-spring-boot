@@ -42,6 +42,7 @@ public class SecurityConfig {
                                 .requestMatchers("/health").permitAll()
                                 .requestMatchers("/api/cache/**").permitAll()
                                 .requestMatchers("/api/books/by-author").permitAll()
+                                .requestMatchers("/api/books/add/book").permitAll()
                                 .requestMatchers("/api/books/**").permitAll()
                                 .anyRequest().authenticated())
                 .sessionManagement(session->
