@@ -1,5 +1,6 @@
 package com.codeviewandtalk.library.management.controller;
 
+import com.codeviewandtalk.library.management.dto.BookRequest;
 import com.codeviewandtalk.library.management.model.Book;
 import com.codeviewandtalk.library.management.service.BookService;
 import org.springframework.http.ResponseEntity;
@@ -43,5 +44,11 @@ public class BookController {
     public ResponseEntity<Book> getBookById(@PathVariable Long id) {
         Book book = bookService.getBookById(id);
         return ResponseEntity.ok(book);
+    }
+
+    @PostMapping("/add/book")
+    public ResponseEntity<Book> addNewBook(@RequestBody BookRequest book) {
+      Book saveBook = bookService.addNewBook(book);
+        return ResponseEntity.ok(saveBook);
     }
 }
