@@ -46,6 +46,7 @@ public class SecurityConfig {
                                 .requestMatchers("/api/books/**").permitAll()
                                 .requestMatchers("/actuator/health", "/actuator/info").permitAll()
                                 .requestMatchers("/actuator/**").permitAll()
+                                .requestMatchers("/books/**").permitAll()
                                 .anyRequest().authenticated())
                 .sessionManagement(session->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
