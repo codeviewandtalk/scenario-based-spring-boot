@@ -39,11 +39,13 @@ public class SecurityConfig {
                 .csrf(csrf->csrf.disable())
                 .authorizeHttpRequests(auth->
                         auth.requestMatchers("/auth/**").permitAll()
-                                .requestMatchers("/health").permitAll()
+                                .requestMatchers("/health/**").permitAll()
                                 .requestMatchers("/api/cache/**").permitAll()
                                 .requestMatchers("/api/books/by-author").permitAll()
                                 .requestMatchers("/api/books/add/book").permitAll()
                                 .requestMatchers("/api/books/**").permitAll()
+                                .requestMatchers("/actuator/health", "/actuator/info").permitAll()
+                                .requestMatchers("/actuator/**").permitAll()
                                 .anyRequest().authenticated())
                 .sessionManagement(session->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
