@@ -11,6 +11,9 @@ public class Book {
 
     private String title;
 
+    private boolean archived = false;
+
+
     // Many books can be associated with one author
     @JsonBackReference
     @ManyToOne
@@ -40,4 +43,13 @@ public class Book {
     public void setAuthor(Author author) {
         this.author = author;
     }
+
+    public boolean isArchived() {
+        return archived;
+    }
+
+    public void setArchived(boolean archived) {
+        this.archived = archived;
+    }
+
 }
