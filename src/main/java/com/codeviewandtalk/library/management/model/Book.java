@@ -13,6 +13,8 @@ public class Book {
 
     private String title;
 
+
+    @Column(nullable = false)
     private boolean archived = false;
 
     @PastOrPresentDate
