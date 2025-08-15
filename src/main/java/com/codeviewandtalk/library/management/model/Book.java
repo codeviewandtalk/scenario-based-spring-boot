@@ -3,6 +3,8 @@ package com.codeviewandtalk.library.management.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
+
 @Entity
 public class Book {
     @Id
@@ -12,6 +14,9 @@ public class Book {
     private String title;
 
     private boolean archived = false;
+
+    @PastOrPresentDate
+    private LocalDate publicationDate;
 
 
     // Many books can be associated with one author
@@ -47,9 +52,15 @@ public class Book {
     public boolean isArchived() {
         return archived;
     }
-
     public void setArchived(boolean archived) {
         this.archived = archived;
+    }
+
+    public LocalDate getPublicationDate() {
+        return publicationDate;
+    }
+    public void setPublicationDate(LocalDate publicationDate) {
+        this.publicationDate = publicationDate;
     }
 
 }

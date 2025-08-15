@@ -53,6 +53,7 @@ public class BookService {
 
         Book bookObj= new Book();
         bookObj.setTitle(bookRequest.getTitle());
+        bookObj.setPublicationDate(bookRequest.getPublicationDate());
         Author author = authorRepository.findById(bookRequest.getAuthorId())
                 .orElseThrow(() -> new BookNotFoundException("Author not found"));
         bookObj.setAuthor(author);
