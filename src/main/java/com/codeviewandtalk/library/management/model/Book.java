@@ -13,8 +13,13 @@ public class Book {
 
     private String title;
 
+
+    @Column(nullable = false)
+    private boolean archived = false;
+
     @PastOrPresentDate
     private LocalDate publicationDate;
+
 
     // Many books can be associated with one author
     @JsonBackReference
@@ -46,11 +51,18 @@ public class Book {
         this.author = author;
     }
 
+    public boolean isArchived() {
+        return archived;
+    }
+    public void setArchived(boolean archived) {
+        this.archived = archived;
+    }
+
     public LocalDate getPublicationDate() {
         return publicationDate;
     }
-
     public void setPublicationDate(LocalDate publicationDate) {
         this.publicationDate = publicationDate;
     }
+
 }
