@@ -35,3 +35,47 @@ Scenario: A user tries to fetch details of a book that does not exist in the dat
   **Question**: How would you implement authentication and authorization in your Spring Boot application? What configurations would you add to secure the endpoints?
 
 
+### 6. **Spring Boot Profiles**
+
+- Scenario: The application needs to run in different environments (development, testing, production) with different database configurations.  
+
+  **Question**: How would you use Spring Boot profiles to manage environment-specific configurations?
+
+
+
+### 7. **Caching**
+
+- Scenario: The API to fetch book details is frequently called, and you want to improve its performance by caching the results.  
+
+  **Question**: How would you implement caching in your Spring Boot application? Which annotations and configurations would you use?
+
+
+### 8. **Asynchronous Processing**
+
+- Scenario: You need to send an email notification to users when a new book is added, but this process should not block the main thread.  
+
+  **Question**: How would you implement asynchronous processing in Spring Boot for this use case?
+### 9. **Spring Boot Actuator**
+
+- Scenario: The operations team wants to monitor the health and metrics of the application.  
+
+  **Question**: How would you enable and configure Spring Boot Actuator to expose health and metrics endpoints?
+
+
+### 10. **File Upload/Download**
+
+- Scenario: The application needs to allow users to upload and download book cover images.  
+
+  **Question**: How would you implement file upload and download functionality in Spring Boot?
+
+### 11. **Scheduler**
+
+- Scenario: You need to implement a scheduled task that runs every day at midnight to archive old book records.  
+
+  **Question**: How would you implement this functionality in Spring Boot?
+
+### 12. **Custom Annotations**
+
+- Scenario: You want to create a custom annotation to validate that the book's publication date is not in the future.  
+
+  **Question**: How would you create and use a custom annotation for this validation?
